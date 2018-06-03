@@ -5,7 +5,7 @@
 
     <data>
 
-        <!--<import type="com.waber.mvvmpractice.R"/>-->
+        <import type="com.waber.mvvmpractice.R"/>
 
         <variable
             name="simpleNewsBean"
@@ -61,8 +61,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:layout_marginTop="8dp"
-            android:onClick="@{()->adapter.onClickDianZan(simpleNewsBean.position)}"
-            app:resId="@{simpleNewsBean.isGood ? R.mipmap.dianzan_press : R.mipmap.dianzan_normal}"/>
+            android:onClick="@{()->adapter.onClickDianZan(simpleNewsBean,position)}"
+            app:resId="@{simpleNewsBean.isGoods ? R.mipmap.dianzan_press : R.mipmap.dianzan_normal }"/>
+
 
     </RelativeLayout>
 

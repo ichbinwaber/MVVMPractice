@@ -83,7 +83,7 @@ public class NewsModelImpl implements INewsModel{
                                 loadListener.loadSuccess(simpleNewsBeanList);
                                 loadListener.loadComplete();
                             }
-                        },2000);
+                        }, 2000);
                     }
                 });
     }

@@ -10,24 +10,33 @@ import android.content.DialogInterface;
 
 public class DialogHelper {
 
-    public static DialogHelper getInstance(){
-        return LoadDialogHelper.instance;
+    public static DialogHelper getInstance() {
+        return LoadDialogHolder.instance;
     }
 
-    private static class LoadDialogHelper{
+    private static class LoadDialogHolder {
         static DialogHelper instance = new DialogHelper();
     }
 
+    /**
+     * progressDialog
+     */
     private ProgressDialog progressDialog;
 
-    private void createDialog(Context context,String msg){
+    /**
+     * 创建加载框
+     *
+     * @param context context
+     * @param msg     msg
+     */
+    private void createDialog(Context context, String msg) {
         progressDialog = new ProgressDialog(context);
         progressDialog.setCancelable(false);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setMessage(msg);
         progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
-            public void onCancel(DialogInterface dialogInterface) {
+            public void onCancel(DialogInterface dialog) {
                 progressDialog = null;
             }
         });
@@ -35,24 +44,27 @@ public class DialogHelper {
 
     /**
      * 展示加载框
-     * @param context
-     * @param msg
+     *
+     * @param context context
+     * @param msg     加载信息
      */
-    public void show(Context context,String msg){
+    public void show(Context context, String msg) {
         close();
-        createDialog(context,msg);
-        if (progressDialog!=null && !progressDialog.isShowing()){
+        createDialog(context, msg);
+        if (progressDialog != null && !progressDialog.isShowing()) {
             progressDialog.show();
         }
     }
 
     /**
-     * 关闭展示框
+     * 关闭加载框
      */
-    public void close(){
-        if (progressDialog!=null && !progressDialog.isShowing()){
+    public void close() {
+        if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
     }
 
+
 }
+

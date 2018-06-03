@@ -19,9 +19,10 @@ public class ImageHelper {
      * @param url 图片路径
      */
     @BindingAdapter({"imageUrl"})
-    private static void loadImage(ImageView iv,String url){
+    public static void loadImage(ImageView iv,String url){
         Glide.with(iv.getContext()).load(url).into(iv);
     }
+
 
     /**
      * mv_vm xml 设置 mipmap Resource
@@ -30,7 +31,7 @@ public class ImageHelper {
      * @param resId resource id
      */
     @BindingAdapter({"resId"})
-    private static void loadMipmapResource(ImageView iv,int resId){
+    public static void loadMipmapResource(ImageView iv,int resId){
         iv.setImageResource(resId);
     }
 }
